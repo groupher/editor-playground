@@ -1,0 +1,261 @@
+<meta http-equiv="content-type" content="text/JavaScript;charset=utf-8" />
+<script src="./assets/jquery.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script> -->
+<script src="../editor.js/dist/editor.js"></script>
+
+<script src="./assets/prism-core.min.js"></script>
+<script src="./assets/prism-autoloader.min.js"></script>
+
+<!-- try ping -->
+<!-- <script
+  src="https://cdn.jsdelivr.net/gh/alfg/ping.js@0.2.2/dist/ping.min.js"
+  type="text/javascript"
+></script> -->
+<style class="embedly-css2">
+  .embedly-css .card .title {
+    margin-top: 5px;
+  }
+</style>
+
+<link rel="stylesheet" href="./assets/prism-solarizedlight.css" />
+
+<script src="../editor-header/dist/bundle.js"></script>
+<script src="../editor-collapse/dist/bundle.js"></script>
+<script src="../editor-delimiter/dist/bundle.js"></script>
+<script src="../editor-paragraph/dist/bundle.js"></script>
+<script src="../editor-link/dist/bundle.js"></script>
+<script src="../editor-image/dist/bundle.js"></script>
+<script src="../editor-embed/dist/bundle.js"></script>
+<script src="../editor-list/dist/bundle.js"></script>
+<!-- <script src="../editor-checklist/dist/bundle.js"></script> -->
+<script src="../editor-quote/dist/bundle.js"></script>
+<script src="../editor-alert/dist/bundle.js"></script>
+<script src="../editor-marker/dist/bundle.js"></script>
+<script src="../editor-strike/dist/bundle.js"></script>
+<script src="../editor-code/dist/bundle.js"></script>
+<script src="../editor-inline-code/dist/bundle.js"></script>
+<script src="../editor-vote/dist/bundle.js"></script>
+<script src="../editor-lock/dist/bundle.js"></script>
+<!-- <script src="../editor-lock2/dist/bundle.js"></script> -->
+<script src="../editor-inline-footnote//dist/bundle.js"></script>
+<script src="../editor-mention/dist/bundle.js"></script>
+<script src="../editor-emoji/dist/bundle.js"></script>
+<script src="../editor-eventbus/dist/bundle.js"></script>
+<script src="../editor-header/dist/bundle.js"></script>
+<script src="../editor-table/dist/bundle.js"></script>
+
+<script
+  src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js"
+  crossorigin="anonymous"
+></script>
+<div id="editorjs"></div>
+
+<script>
+  const editor = new EditorJS({
+    autofocus: true,
+    tools: {
+      header: {
+        class: Header,
+      },
+      collapse: {
+        class: Collapse,
+        inlineToolbar: ["bold", "link", "inlineCode"],
+      },
+      delimiter: Delimiter,
+      quote: Quote,
+      list: {
+        class: List,
+        inlineToolbar: ["bold", "link", "inlineCode"],
+      },
+      // checklist: Checklist,
+      embed: {
+        class: Embed,
+        inlineToolbar: true,
+        config: {
+          services: {
+            youtube: true,
+            coub: true,
+          },
+        },
+      },
+      // linkTool: {
+      //   class: LinkTool,
+      //   shortcut: "CMD+SHIFT+k"
+      // },
+      image: {
+        class: ImageTool,
+        inlineToolbar: true,
+        config: {
+          captionPlaceholder: "图片描述（可选）",
+        },
+      },
+      code: {
+        class: Code,
+        // config: {
+        //   hello: "world"
+        // }
+      },
+      paragraph: {
+        class: Paragraph,
+        inlineToolbar: true,
+      },
+      eventBus: EventBus,
+      alert: {
+        class: Alert,
+        inlineToolbar: ["bold", "link", "inlineCode"],
+        shortcut: "CMD+SHIFT+W",
+        config: {
+          titlePlaceholder: "标题",
+          messagePlaceholder: "警告内容",
+        },
+      },
+      vote: Vote,
+      table: {
+        class: Table,
+      },
+      mention: {
+        class: Mention,
+        shortcut: "CMD+SHIFT+M",
+      },
+      // marker: Marker,
+      // inlineFootnote: InlineFootnote,
+      // inlineCode: InlineCode,
+      strike: Strike,
+      emoji: Emoji,
+      lock: Lock,
+    },
+    data: {
+      time: 1568343980414,
+      blocks: [
+        {
+          type: "paragraph",
+          data: {
+            text:
+              '<addr class="cdx-lock">hello</addr> Editor.js <mark class="cdx-marker">workspace</mark>. is an element',
+          },
+        },
+        // {
+        //   type: "list",
+        //   data: {
+        //     type: "checklist",
+        //     items: [
+        //       {
+        //         text: "It is a block-styled editor",
+        //         label: "已完成",
+        //         labelType: "green",
+        //         checked: true,
+        //       },
+        //       {
+        //         text: "来个中文测试2",
+        //         label: "wip",
+        //         labelType: "warn",
+        //         checked: false,
+        //       },
+        //       {
+        //         text: "It returns clean data output in JSON",
+        //         label: "errored",
+        //         labelType: "red",
+        //         checked: true,
+        //       },
+        //       {
+        //         text: "hello i am red2",
+        //         label: "error bb",
+        //         labelType: "red",
+        //         checked: true,
+        //       },
+        //     ],
+        //   },
+        // },
+        // // {
+        //   type: "collapse",
+        //   data: {}
+        // },
+        // {
+        //   type: "collapse",
+        //   data: {
+        //     title: "一些疑问",
+        //     content: "我觉得有点<b>奇怪啊</b>",
+        //   },
+        // },
+        // {
+        //   type: "column",
+        //   data: [
+        //     {
+        //       type: "tel",
+        //       title: "一些疑问",
+        //       content: "我觉得有点<b>奇怪啊</b>",
+        //     },
+        //   ],
+        // },
+        /*
+        {
+          type: "code",
+          data: {
+            lang: "javascript",
+            content: "alert('hello world')"
+          }
+        },
+        {
+          type: "code",
+          data: [
+            {
+              index: 0,
+              lang: "javascript",
+              content: "alert('hello world from array')"
+            },
+            {
+              index: 1,
+              lang: "python",
+              content: `print "I'm Python. Nice to meet you!"`
+            },
+            {
+              index: 2,
+              lang: "swift",
+              content: "let swift = 2;"
+            },
+            {
+              index: 3,
+              lang: "csharp",
+              content: "let csharp = 3;"
+            },
+            {
+              index: 4,
+              lang: "php",
+              content: "let php = 4;"
+            },
+            {
+              index: 5,
+              lang: "clojure",
+              content: "let clojure = 5;"
+            }
+          ]
+        }
+        */
+        // {
+        //   type: "image",
+        //   data: {
+        //     file: {
+        //       url:
+        //         "https://www.tesla.com/tesla_theme/assets/img/_vehicle_redesign/roadster_and_semi/roadster/hero.jpg"
+        //     }
+        //   }
+        // }
+        // {
+        //   "type" : "header",
+        //   "data": {
+        //     "text": "hello world",
+        //     "level": 2
+        //   }
+        // },
+      ],
+      version: "2.15.1",
+    },
+
+    onChange: function () {
+      editor.save().then((data) => {
+        // console.log("getCurrentBlockIndex: ", editor.blocks.getCurrentBlockIndex())
+        // fconsole.log("data: ", data);
+      });
+    },
+  });
+</script>
